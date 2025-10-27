@@ -2,14 +2,15 @@ import java.util.ArrayList;
 
 public class Ballet extends MusicalShow {
     private String choreographer;
-    private int dancersCount;
 
-    public Ballet(String title, String directorLastName, String directorName,
-                  ArrayList<Actor> listOfActors, int duration,
+    public Ballet(String title, Director director, int duration,
                   String musicAuthor, String librettoText,
-                  String choreographer, int dancersCount) {
-        super(title, directorLastName, directorName, listOfActors, duration, musicAuthor, librettoText);
+                  String choreographer) {
+        super(title, director, duration, musicAuthor, librettoText);
         this.choreographer = choreographer;
-        this.dancersCount = dancersCount;
+    }
+
+    public String getChoreographer() {
+        return choreographer;
     }
 }

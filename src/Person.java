@@ -3,14 +3,12 @@ import java.util.Objects;
 public class Person {
     private String name;
     private String surname;
-    private String gender;
-    private double height;
+    private Gender gender;
 
-    public Person(String name, String surname, String gender, double height) {
+    public Person(String name, String surname, Gender gender) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
-        this.height = height;
     }
 
     public String getName() {
@@ -21,12 +19,8 @@ public class Person {
         return surname;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
-    }
-
-    public double getHeight() {
-        return height;
     }
 
     public String getFullName() {
@@ -38,19 +32,17 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Double.compare(person.height, height) == 0 &&
-                Objects.equals(name, person.name) &&
-                Objects.equals(surname, person.surname) &&
-                Objects.equals(gender, person.gender);
+        return Objects.equals(name, person.name) &&
+                Objects.equals(surname, person.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, gender, height);
+        return Objects.hash(name, surname);
     }
 
     @Override
     public String toString() {
-        return name + " " + surname + " (" + height + " м)";
+        return name + " " + surname + " (" + gender + ")";
     }
 }
